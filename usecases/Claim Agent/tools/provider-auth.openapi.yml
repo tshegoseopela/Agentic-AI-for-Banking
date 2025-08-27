@@ -1,0 +1,52 @@
+openapi: 3.0.0
+info:
+  title: Provider Auth Server API
+  description: An API for authenticating a provider.
+  version: 1.0.0
+servers:
+  - url: >-
+      https://provider-auth.13i6qeudn7sc.us-east.codeengine.appdomain.cloud
+    description:  Member Profile Server
+paths:
+  /providerAuth:
+    get:
+      operationId: providerAuth
+      summary: Validate that the provider has access to the member profiles. 
+      description: Validate that the provider has access to the member profiles.
+      parameters:
+        - name: npi_number
+          in: query
+          description: National provider identifier. It's a ten digit number
+          required: true
+          example: 1234567890
+          schema:
+            type: number
+        - name: provider_id
+          in: query
+          description: Provider ID. Single letter followed by an 8 digit number.
+          required: true
+          example: R12345678
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/authorization'
+      security:
+        - api_key: []
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: apikey
+      in: header
+  schemas:
+    authorization:
+      type: object
+      properties:
+        authorized:
+          type: boolean
+          description: True if valid. False otherwise.

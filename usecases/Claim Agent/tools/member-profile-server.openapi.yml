@@ -1,0 +1,105 @@
+openapi: 3.0.0
+info:
+  title: Member Profile Server API
+  description: An API for serving up member profiles
+  version: 1.0.0
+servers:
+  - url: >-
+      https://member-profile.13i6qeudn7sc.us-east.codeengine.appdomain.cloud
+    description:  Member Profile Server
+paths:
+  /profiles:
+    get:
+      operationId: getMemberProfile
+      summary: Get a member profile. Both the member ID and the date of birth are needed to get a member profile. Date of birth should be in the form of YYYY-MM-DD. The member ID must be 8 digits. 
+      description: Get a member profile. Both the member ID and the date of birth are needed to get a member profile. Date of birth should be in the form of YYYY-MM-DD. The member ID must be 8 digits.
+      parameters:
+        - name: member_id
+          in: query
+          description: Member identifier.
+          required: true
+          example: 12345678
+          schema:
+            type: string
+        - name: member_DOB
+          in: query
+          description: Member's date of birth.
+          required: true
+          example: YYYY-MM-DD
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/profile'
+      security:
+        - api_key: []
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: apikey
+      in: header
+  schemas:
+    profile:
+      type: object
+      properties:
+        member_id:
+          type: string
+          description: Member's ID.
+        first_name:
+          type: string
+          description: Member's first name.
+        last_name:
+          type: string
+          description: Member's last name.
+        phone_number:
+          type: string
+          description: Member's Phone number.
+        email:
+          type: string
+          description: Member's email address.
+        address:
+          type: object
+          properties:
+            street:
+              type: string
+              example: 123 Elm St
+            city:
+              type: string
+              example: Springfield
+            state:
+              type: string
+              example: IL
+            zip_code:
+              type: string
+              example: '62701'
+        claims_list:
+          type: array
+          items:
+            $ref: '#/components/schemas/claim'
+    claim:
+      required:
+        - claim_number
+        - date_of_service
+        - status
+      type: object
+      properties:
+        claim_title:
+          type: string
+          example: Claim 1
+        claim_number:
+          type: string
+          example: '8452132299'
+        date_of_service:
+          type: string
+          example: '2024-07-28'
+        status:
+          type: string
+          example: approved
+        claim_description:
+          type: string
+          example: Postpartum follow-up visit.
