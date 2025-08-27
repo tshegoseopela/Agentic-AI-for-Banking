@@ -15,7 +15,7 @@ In this bootcamp, you will build and deploy an Agentic AI application prototype 
 Select an enterprise use case, learn about the business story, and implement it using the hands-on step-by-step guides:
 - [Banking Intelligent Branch Operations](./usecases/Banking%20Intelligent%20Branch%20Operations/)
 - [Finance Market Research Analyst](./usecases/Finance%20Market%20Research%20Analyst/)
-- [Intelligent Business Automation](./usecases/Intelligent%20Business%20Automation)
+- [Intelligent Finance Assistant](./usecases/Intelligent%20Finance%20Assistant/)
 - [Insurance Claims - ADK](./usecases/Claim%20Agent/)
 
 ## How to Set Up ADK Environment
