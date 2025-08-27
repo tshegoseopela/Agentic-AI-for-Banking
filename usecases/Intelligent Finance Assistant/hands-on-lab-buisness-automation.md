@@ -1,4 +1,4 @@
-# 👨🏻‍💻 Use case: Intelligent Business Automation  
+# 👨🏻‍💻 Use case: Intelligent Finance Assistant
 
 ## Table of Contents
 - [Architecture](#-architecture)

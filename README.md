@@ -1,4 +1,4 @@
-# IBM TechXchange Workshop
+# Agentic AI for Banking
 
 ![alt text](/agentic-bootcamp.png)
 
