@@ -1,4 +1,4 @@
- # 🥇 Intelligent Business Automation
+ # 🥇 Intelligent Finance Assistant
 <img width="900" alt="image" src="assets/Business_Automation_Architecture.png">
 
 ## 🤔 The Problem
